@@ -23,6 +23,7 @@ class OPRNWORLD_API ASlashCharacter : public ABaseCharacter, public IPickupInter
 public:
 
 	ASlashCharacter();
+	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void Jump() override;
 	virtual void GetHit_Implementation(const FVector& ImpactPoint, AActor* Hitter) override;
@@ -50,10 +51,15 @@ protected:
 	void PlayEquipMontage(const FName& SectionName);
 	virtual bool CanAttack() override;
 	virtual void AttackEnd() override;
+	virtual void DodgeEnd() override;
 	bool CanDisarm();
 	bool CanArm();
 
 	virtual void Die() override;
+
+	bool HasEnoughStamina();
+
+	bool IsOccupied();
 
 	UFUNCTION(BlueprintCallable)
 	void AttachWeaponToBack();

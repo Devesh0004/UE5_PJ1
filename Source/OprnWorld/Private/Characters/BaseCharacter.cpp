@@ -235,6 +235,10 @@ void ABaseCharacter::AttackEnd()
 
 }
 
+void ABaseCharacter::DodgeEnd()
+{
+}
+
 void ABaseCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
